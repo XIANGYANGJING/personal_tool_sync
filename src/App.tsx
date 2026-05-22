@@ -111,9 +111,9 @@ export default function App() {
       </header>
 
       {tab === 'goals' ? (
-        <div className="flex-1 flex overflow-hidden">
+        <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
           {/* Left: Goals + Actions */}
-          <div className="w-[60%] flex flex-col border-r border-[#2a2a2a]">
+          <div className="w-full md:w-[60%] flex flex-col border-r border-[#2a2a2a]">
             {/* Goal cards */}
             <div className="px-5 py-4 border-b border-[#1a1a1a]">
               <div className="flex items-center justify-between mb-3">
@@ -193,7 +193,7 @@ export default function App() {
           </div>
 
           {/* Right: Principles */}
-          <div className="w-[40%] p-5 overflow-auto">
+          <div className="w-full md:w-[40%] p-5 overflow-auto">
             <h4 className="text-xs text-[#555] uppercase mb-3">原则库</h4>
             <PrincipleList
               principles={principles}
@@ -211,8 +211,8 @@ export default function App() {
 
       {/* Goal creation modal */}
       {showGoalModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="bg-[#1a1a1a] rounded-xl p-5 w-96">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="bg-[#1a1a1a] rounded-xl p-5 w-full max-w-md">
             <h3 className="text-white font-semibold mb-4">新建目标</h3>
             <input
               type="text"

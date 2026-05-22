@@ -20,7 +20,7 @@ export function RecordBar({ actions, onRecord }: RecordBarProps) {
 
   return (
     <div className="bg-[#0d0d0d] border-t border-[#1a1a1a] px-4 py-3">
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         {/* Action selector */}
         <div className="flex gap-1 overflow-x-auto">
           {actions.map(action => (
@@ -39,7 +39,9 @@ export function RecordBar({ actions, onRecord }: RecordBarProps) {
         </div>
 
         {/* Duration wheel */}
-        <DurationWheel value={minutes} onChange={setMinutes} />
+        <div className="flex items-center justify-center">
+          <DurationWheel value={minutes} onChange={setMinutes} />
+        </div>
 
         {/* Note input */}
         <input
@@ -47,7 +49,7 @@ export function RecordBar({ actions, onRecord }: RecordBarProps) {
           value={note}
           onChange={(e) => setNote(e.target.value)}
           placeholder="记录一下..."
-          className="flex-1 px-3 py-2 text-sm bg-[#141414] border border-[#2a2a2a] rounded-lg text-white"
+          className="flex-1 px-3 py-2 text-sm bg-[#141414] border border-[#2a2a2a] rounded-lg text-white min-w-0"
           onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
         />
 
